@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tet_playlist_name"
+        android:layout_width="match_parent"
+        android:text="Плейлтст имя"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:layout_below="@id/tet_playlist_name"
+        android:id="@+id/tet_playlist_count"
+        android:layout_width="match_parent"
+        android:text="Плейлтст имя"
+        android:textColor="@color/black94"
+        android:textSize="12dp"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</RelativeLayout>

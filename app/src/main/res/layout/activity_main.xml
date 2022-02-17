@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp">
+
+                <ImageView
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/logoyoutube" />
+
+                <ImageView
+                    android:layout_width="23dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toLeftOf="@id/notificationMain"
+                    android:src="@drawable/broadcasticon" />
+
+                <ImageView
+                    android:id="@+id/notificationMain"
+                    android:layout_width="23dp"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/searchMain"
+                    android:src="@drawable/notificationsicon" />
+
+                <ImageView
+                    android:id="@+id/searchMain"
+                    android:layout_width="23dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="30dp"
+                    android:layout_toLeftOf="@id/profileMain"
+                    android:src="@drawable/searchicon" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileMain"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/profileicon" />
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayoutMain"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/bar"
+        android:layout_above="@+id/linear"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <LinearLayout
+            android:id="@+id/linearHome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="23dp"
+                android:src="@drawable/homeicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Главная"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearShorts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="25dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/shortsicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Shorts"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearAdd"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:src="@drawable/addicon" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearSubscribe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:src="@drawable/subscribeicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Подписки"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/linearLibrary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:src="@drawable/libraryicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="Библеотека"
+                android:textColor="@color/black"
+                android:textSize="11dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

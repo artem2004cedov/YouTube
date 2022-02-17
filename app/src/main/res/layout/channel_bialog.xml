@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:textSize="17dp"
+            android:text="Создать аккаунт"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/input_channel_name"
+            android:layout_width="match_parent"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_bd"
+            android:padding="12dp"
+            android:hint="Имя канала"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/input_channel_description"
+            android:layout_width="match_parent"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_bd"
+            android:layout_marginTop="10dp"
+            android:inputType="textMultiLine"
+            android:padding="12dp"
+            android:hint="Описания"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/create_channel"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:text="Созадать канал"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:gravity="end"
+            android:includeFontPadding="false"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

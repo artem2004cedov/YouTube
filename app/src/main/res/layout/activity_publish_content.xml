@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PublishContentActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/publishBack"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/arrowbackicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_toRightOf="@id/publishBack"
+                android:text="Добавить данные"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/publishNext"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="6dp"
+                android:background="@color/purple_700"
+                android:text="далее"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <VideoView
+        android:id="@+id/viewViewPublish"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_below="@id/toolbar" />
+
+
+    <ProgressBar
+        android:visibility="visible"
+        android:layout_margin="10dp"
+        android:id="@+id/progressBarPublish"
+        android:layout_below="@+id/viewViewPublish"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:backgroundTint="#F44336"
+        android:padding="5dp"
+        android:indeterminateOnly="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:padding="6dp"
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBarPublish"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profilePublish"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/profileicon" />
+
+        <TextView
+            android:id="@+id/namePublish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/black94"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/publishTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear"
+            android:minHeight="90dp"
+            android:paddingStart="20dp"
+            android:padding="10dp"
+            android:background="@drawable/edittext_bd"
+            android:hint="Ведите названия"
+             />
+
+        <EditText
+            android:id="@+id/publishDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linear"
+            android:background="@drawable/edittext_bd"
+            android:drawableStart="@drawable/pencilicon"
+            android:drawablePadding="20dp"
+            android:hint="Описания"
+            android:padding="10dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear2"
+        android:layout_margin="6dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/planeticon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Открыть доступ"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/locationicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Местоположение"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearAddPlayList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/addplaylisticon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Добавть в плейлист"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>
