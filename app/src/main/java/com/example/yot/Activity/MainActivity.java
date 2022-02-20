@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.yot.Fragment.ChannelDashboardFragment;
 import com.example.yot.Fragment.HomeFragment;
 import com.example.yot.Fragment.LibraryFragment;
@@ -53,8 +54,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
@@ -301,6 +305,28 @@ public class MainActivity extends AppCompatActivity {
         profileMain = findViewById(R.id.profileMain);
         searchMain = findViewById(R.id.searchMain);
         notificationMain = findViewById(R.id.notificationMain);
+
+        if (user != null) {
+            linearAdd.setVisibility(View.VISIBLE);
+            FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        String profile = snapshot.child("profile").getValue().toString();
+                        Glide.with(getApplication())
+                                .load(profile)
+                                .into(profileMain);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        } else {
+            linearAdd.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -309,7 +335,7 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case RC_SING_IN:
 //                Ошибка
-                if (requestCode == RC_SING_IN && data != null) {
+                if (requestCode == RC_SING_IN /*&& data != null*/) {
                     Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
                     try {
                         GoogleSignInAccount account = task.getResult(ApiException.class);
@@ -330,7 +356,8 @@ public class MainActivity extends AppCompatActivity {
                                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().
                                             child("Users");
                                     databaseReference.child(firebaseUser.getUid()).setValue(hashMap);
-
+                                    Toast.makeText(MainActivity.this, "Успешный вход", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
                                 } else {
                                     Toast.makeText(MainActivity.this, "Ошибка", Toast.LENGTH_SHORT).show();
                                 }

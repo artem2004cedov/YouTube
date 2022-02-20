@@ -53,13 +53,13 @@
 
 
     <ProgressBar
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_margin="10dp"
         android:id="@+id/progressBarPublish"
         android:layout_below="@+id/viewViewPublish"
+        android:indeterminateTint="@color/red"
         style="?android:attr/progressBarStyleHorizontal"
         android:indeterminate="false"
-        android:backgroundTint="#F44336"
         android:padding="5dp"
         android:indeterminateOnly="false"
         android:layout_width="match_parent"

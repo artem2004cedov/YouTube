@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -80,6 +82,8 @@ public class PublishContentActivity extends AppCompatActivity {
     }
 
     private void init() {
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference();
         publishBack = findViewById(R.id.publishBack);
         linearAddPlayList = findViewById(R.id.linearAddPlayList);
         publishNext = findViewById(R.id.publishNext);
@@ -90,10 +94,8 @@ public class PublishContentActivity extends AppCompatActivity {
         publishTitle = findViewById(R.id.publishTitle);
         publishDescription = findViewById(R.id.publishDescription);
         mediaController = new MediaController(PublishContentActivity.this);
-        user = FirebaseAuth.getInstance().getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Content");
         storageReference = FirebaseStorage.getInstance().getReference().child("Content");
-        reference = FirebaseDatabase.getInstance().getReference();
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -132,6 +134,7 @@ public class PublishContentActivity extends AppCompatActivity {
     }
 
     private void uploadVideoToStorage(String title, String description) {
+        publishNext.setClickable(false);
         final StorageReference sRef = storageReference.child(user.getUid())
                 .child(System.currentTimeMillis() + "," + getFileExtension(videoUri));
         sRef.putFile(videoUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -150,6 +153,7 @@ public class PublishContentActivity extends AppCompatActivity {
             public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                 double progress = 100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount();
                 progressBarPublish.setVisibility(View.VISIBLE);
+                progressBarPublish.setProgressTintList(ColorStateList.valueOf(Color.RED));
                 progressBarPublish.setProgress((int) progress);
             }
         });
@@ -159,6 +163,7 @@ public class PublishContentActivity extends AppCompatActivity {
     }
 
     private void getDataUser() {
+        if (user != null)
         reference.child("Users").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

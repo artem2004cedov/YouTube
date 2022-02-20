@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="30dp">
+
+            <ImageButton
+                android:id="@+id/exo_rew"
+                style="@style/ExoMediaButton.Previous" />
+
+
+
+            <ImageButton
+                android:id="@+id/exo_play"
+                style="@style/ExoMediaButton.Play" />
+
+            <ImageButton
+                android:id="@+id/exo_pause"
+                style="@style/ExoMediaButton.Pause" />
+
+
+            <ImageButton
+                android:id="@+id/exo_prev"
+                style="@style/ExoMediaButton.Next" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/exo_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/exo_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:textColor="@color/white" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/playerExpand"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/crop_freeicon" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/exo_progress_placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="3dp"
+                android:backgroundTint="@color/red"
+                android:background="@color/red" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

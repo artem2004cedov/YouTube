@@ -14,9 +14,7 @@
         android:layout_height="220dp"
         app:buffered_color="@color/black"
         app:controller_layout_id="@layout/exoplayer_costom"
-        app:hide_on_touch="true"
         app:resize_mode="fill"
-        app:show_timeout="5000"
         app:use_artwork="true" />
 
     <androidx.core.widget.NestedScrollView
@@ -89,17 +87,21 @@
                             android:orientation="vertical">
 
                             <ImageView
+                                android:id="@+id/likeImage"
                                 android:layout_width="23dp"
                                 android:layout_height="23dp"
                                 android:src="@drawable/likeicon" />
 
                             <TextView
+                                android:id="@+id/textLike"
+                                android:maxLines="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="3dp"
-                                android:text="213"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
+
+
 
                         <LinearLayout
                             android:id="@+id/linearDisLike"
@@ -111,23 +113,25 @@
                             android:orientation="vertical">
 
                             <ImageView
+                                android:id="@+id/dislikeImage"
                                 android:layout_width="23dp"
                                 android:layout_height="23dp"
                                 android:src="@drawable/dislikeicon" />
 
                             <TextView
+                                android:id="@+id/textDisLike"
+                                android:maxLines="1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="3dp"
-                                android:text="27"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.7"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -142,14 +146,14 @@
                                 android:layout_margin="3dp"
                                 android:maxLines="1"
                                 android:text="Поделиться"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.4"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -165,7 +169,7 @@
                                 android:layout_margin="3dp"
                                 android:maxLines="1"
                                 android:text="Создать"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -173,7 +177,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.6"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -189,7 +193,7 @@
                                 android:layout_margin="3dp"
                                 android:maxLines="1"
                                 android:text="Скачать"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -197,7 +201,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="6dp"
-                            android:layout_weight="1"
+                            android:layout_weight="1.2"
                             android:gravity="center_horizontal"
                             android:orientation="vertical">
 
@@ -212,7 +216,7 @@
                                 android:layout_margin="3dp"
                                 android:maxLines="1"
                                 android:text="Сохронить"
-                                android:textSize="11dp" />
+                                android:textSize="10dp" />
                         </LinearLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
@@ -277,7 +281,15 @@
                             android:layout_height="wrap_content"
                             android:text="Подписаться"
                             android:textColor="#DF0F0F"
-                            android:textSize="16dp" />
+                            android:textSize="17dp" />
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:id="@+id/notificationVideo"
+                            android:layout_marginStart="15dp"
+                            android:layout_width="20dp"
+                            android:src="@drawable/notificationsicon"
+                            android:layout_height="20dp"/>
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -289,6 +301,7 @@
                 android:background="#E3E0E0" />
 
             <LinearLayout
+                android:id="@+id/linearComment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -300,11 +313,11 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/commentContUser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Коментрарии   66"
                         android:textColor="@color/black"
-                        android:textSize="14dp" />
+                        android:textSize="12dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -319,14 +332,13 @@
                         android:layout_height="25dp"
                         android:src="@drawable/profileicon" />
 
-                    <EditText
+                    <TextView
+                        android:id="@+id/textCommentUser"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/search_ed"
-                        android:hint="Оставьте коменнтарий"
-                        android:padding="6dp"
-                        android:textSize="12dp" />
+                        android:layout_marginStart="4dp"
+                        android:textSize="11dp"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content"/>
                 </LinearLayout>
 
 
